@@ -51,7 +51,7 @@ def make_window():
     phone = Entry(frame1, textvariable=phonevar)
     phone.grid(row=2, column=1, sticky=W)
 
-    frame2 = Frame(win)       # Row of buttons
+    frame2 = Frame(window)       # Row of buttons
     frame2.pack()
     b1 = Button(frame2, text=" Add  ", command=add_entry)
     b2 = Button(frame2, text="Update", command=update_entry)
@@ -64,14 +64,14 @@ def make_window():
     b4.pack(side=LEFT)
     b5.pack(side=LEFT)
 
-    frame3 = Frame(win)       # select of names
+    frame3 = Frame(window)       # select of names
     frame3.pack()
     scroll = Scrollbar(frame3, orient=VERTICAL)
     select = Listbox(frame3, yscrollcommand=scroll.set, height=6)
     scroll.config(command=select.yview)
     scroll.pack(side=RIGHT, fill=Y)
     select.pack(side=LEFT, fill=BOTH, expand=1)
-    return win
+    return window
 
 
 def set_select():
@@ -81,6 +81,6 @@ def set_select():
         select.insert(END, "{0}, {1}".format(lname, fname))
 
 
-win = make_window()
+window = make_window()
 set_select()
-win.mainloop()
+window.mainloop()
